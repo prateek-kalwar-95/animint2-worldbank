@@ -4,30 +4,43 @@
  "geom": "tallrect",
 "classed": "geom1_tallrect_scatter",
 "aes": {
- "xmin": "year - 0.5",
-"xmax": "year + 0.5",
-"clickSelects": "year" 
+ "key": "key",
+"xmin": "min",
+"xmax": "max",
+"clickSelects.variable": "var",
+"clickSelects.value": "click.val",
+"showSelected.variable": "var",
+"showSelected.value": "show.val" 
 },
 "params": {
  "na.rm": false,
 "na.rm": false,
 "alpha":      0.5,
-"clickSelects": "year",
+"showSelected": "show.val",
+"clickSelects": "click.val",
+"help_showSelected": "year",
 "help_clickSelects": "year" 
 },
 "types": {
  "xmin": "numeric",
 "xmax": "numeric",
-"clickSelects": "numeric",
+"key": "character",
+"clickSelects.variable": "character",
+"clickSelects.value": "numeric",
+"showSelected.variable": "character",
+"showSelected.value": "numeric",
 "PANEL": "factor",
 "group": "character" 
 },
 "chunk_order": [],
 "nest_order": [
- "PANEL" 
+ "PANEL",
+"showSelected.variable",
+"showSelected.value" 
 ],
 "subset_order": [
- "PANEL" 
+ "PANEL",
+"showSelected.variable" 
 ],
 "chunks": 1,
 "total": 1 
@@ -40,6 +53,7 @@
 "y": "life.expectancy",
 "group": "country",
 "colour": "Region",
+"key": "country",
 "clickSelects": "country",
 "showSelected1": "Region" 
 },
@@ -58,6 +72,7 @@
 "x": "numeric",
 "y": "numeric",
 "group": "character",
+"key": "character",
 "clickSelects": "character",
 "showSelected1": "character",
 "PANEL": "factor" 
@@ -276,46 +291,99 @@
 },
 "total": 52 
 },
-"geom5_widerect_scatter": {
- "geom": "widerect",
-"classed": "geom5_widerect_scatter",
+"geom5_text_scatter": {
+ "geom": "text",
+"classed": "geom5_text_scatter",
 "aes": {
- "ymin": "year - 0.5",
-"ymax": "year + 0.5",
-"clickSelects": "year" 
+ "x": "5",
+"y": "85",
+"label": "paste0(\"year = \", year)",
+"key": "1",
+"showSelected1": "year" 
 },
 "params": {
- "na.rm": false,
+ "parse": false,
+"check_overlap": false,
 "na.rm": false,
-"alpha":      0.5,
-"clickSelects": "year",
-"help_clickSelects": "year" 
+"na.rm": false,
+"showSelected": "year",
+"help_showSelected": "year" 
 },
 "types": {
- "ymin": "numeric",
-"ymax": "numeric",
-"clickSelects": "numeric",
+ "x": "numeric",
+"y": "numeric",
+"label": "character",
+"key": "numeric",
+"showSelected1": "numeric",
 "PANEL": "factor",
 "group": "character" 
 },
 "chunk_order": [],
 "nest_order": [
- "PANEL" 
+ "showSelected1",
+"PANEL" 
 ],
 "subset_order": [
- "PANEL" 
+ "showSelected1",
+"PANEL" 
 ],
 "chunks": 1,
 "total": 1 
 },
-"geom6_path_scatter": {
+"geom6_widerect_scatter": {
+ "geom": "widerect",
+"classed": "geom6_widerect_scatter",
+"aes": {
+ "key": "key",
+"ymin": "min",
+"ymax": "max",
+"clickSelects.variable": "var",
+"clickSelects.value": "click.val",
+"showSelected.variable": "var",
+"showSelected.value": "show.val" 
+},
+"params": {
+ "na.rm": false,
+"na.rm": false,
+"alpha":      0.5,
+"showSelected": "show.val",
+"clickSelects": "click.val",
+"help_showSelected": "year",
+"help_clickSelects": "year" 
+},
+"types": {
+ "ymin": "numeric",
+"ymax": "numeric",
+"key": "character",
+"clickSelects.variable": "character",
+"clickSelects.value": "numeric",
+"showSelected.variable": "character",
+"showSelected.value": "numeric",
+"PANEL": "factor",
+"group": "character" 
+},
+"chunk_order": [],
+"nest_order": [
+ "PANEL",
+"showSelected.variable",
+"showSelected.value" 
+],
+"subset_order": [
+ "PANEL",
+"showSelected.variable" 
+],
+"chunks": 1,
+"total": 1 
+},
+"geom7_path_scatter": {
  "geom": "path",
-"classed": "geom6_path_scatter",
+"classed": "geom7_path_scatter",
 "aes": {
  "x": "fertility.rate",
 "y": "year",
 "group": "country",
 "colour": "Region",
+"key": "country",
 "clickSelects": "country",
 "showSelected1": "Region" 
 },
@@ -326,7 +394,7 @@
 "na.rm": false,
 "na.rm": false,
 "size":        4,
-"alpha":        1,
+"alpha":      0.6,
 "clickSelects": "country",
 "alpha_off":      0.1,
 "showSelected": "Region",
@@ -338,6 +406,7 @@
 "x": "numeric",
 "y": "numeric",
 "group": "character",
+"key": "character",
 "clickSelects": "character",
 "showSelected1": "character",
 "PANEL": "factor" 
@@ -350,58 +419,6 @@
 ],
 "subset_order": [
  "showSelected1",
-"PANEL" 
-],
-"chunks": 1,
-"total": 1 
-},
-"geom7_labelaligned_scatter": {
- "geom": "label_aligned",
-"classed": "geom7_labelaligned_scatter",
-"aes": {
- "x": "fertility.rate",
-"y": "year",
-"key": "country",
-"colour": "Region",
-"label": "country",
-"clickSelects": "country",
-"showSelected1": "country",
-"showSelected2": "Region" 
-},
-"params": {
- "label_r":     0.15,
-"alignment": "horizontal",
-"min_distance":      0.1,
-"background_rect": true,
-"na.rm": false,
-"na.rm": false,
-"vjust":        1,
-"showSelected": [ "country", "Region" ],
-"clickSelects": "country",
-"help_showSelected": [ "country", "Region" ],
-"help_clickSelects": "country" 
-},
-"types": {
- "colour": "rgb",
-"x": "numeric",
-"y": "numeric",
-"key": "character",
-"label": "character",
-"clickSelects": "character",
-"showSelected1": "character",
-"showSelected2": "character",
-"PANEL": "factor",
-"group": "character" 
-},
-"chunk_order": [],
-"nest_order": [
- "showSelected1",
-"showSelected2",
-"PANEL" 
-],
-"subset_order": [
- "showSelected1",
-"showSelected2",
 "PANEL" 
 ],
 "chunks": 1,
@@ -458,11 +475,13 @@
 },
 "time": {
  "variable": "year",
-"ms":     3000,
+"ms":     2000,
 "sequence": [ "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011" ] 
 },
 "duration": {
- "year":     1000 
+ "year":     1000,
+"country":     1000,
+"Region":     1000 
 },
 "selectors": {
  "Region": {
@@ -475,10 +494,10 @@
 "update": [
  "geom2_line_scatter",
 "geom3_point_scatter",
-"geom6_path_scatter",
-"geom7_labelaligned_scatter",
+"geom7_path_scatter",
 "geom8_polygon_scatter" 
-] 
+],
+"duration":     1000 
 },
 "year": {
  "is.variable.value": false,
@@ -492,7 +511,8 @@
  "geom1_tallrect_scatter",
 "geom3_point_scatter",
 "geom4_text_scatter",
-"geom5_widerect_scatter" 
+"geom5_text_scatter",
+"geom6_widerect_scatter" 
 ],
 "duration":     1000 
 },
@@ -507,10 +527,10 @@
  "geom2_line_scatter",
 "geom3_point_scatter",
 "geom4_text_scatter",
-"geom6_path_scatter",
-"geom7_labelaligned_scatter",
+"geom7_path_scatter",
 "geom8_polygon_scatter" 
-] 
+],
+"duration":     1000 
 } 
 },
 "plots": {
@@ -572,7 +592,7 @@
 },
 "Region": {
  "guide": "legend",
-"geoms": [ "path", "point", "path", "gTree", "polygon" ],
+"geoms": [ "path", "point", "path", "polygon" ],
 "title": "Region",
 "class": "Region",
 "selector": "Region",
@@ -585,23 +605,13 @@
  "pathcolour": "#F8766D",
 "pathsize":        4,
 "pathlinetype":        1,
-"pathalpha":        1,
+"pathalpha":      0.6,
 "label": "East Asia & Pacific",
 "pointcolour": "#F8766D",
 "pointshape":       19,
 "pointsize":      1.5,
 "pointalpha":        1,
 "pointstroke":      0.5,
-"gTreecolour": "#F8766D",
-"gTreefill": "#FFFFFF",
-"gTreesize":       12,
-"gTreeangle":        0,
-"gTreehjust":      0.5,
-"gTreevjust":        1,
-"gTreealpha":        1,
-"gTreefamily": "",
-"gTreefontface":        1,
-"gTreelineheight":      1.2,
 "polygonfill": "#F8766D",
 "polygoncolour": "#000000",
 "polygonsize":      0.5,
@@ -612,23 +622,13 @@
  "pathcolour": "#C49A00",
 "pathsize":        4,
 "pathlinetype":        1,
-"pathalpha":        1,
+"pathalpha":      0.6,
 "label": "Europe & Central Asia",
 "pointcolour": "#C49A00",
 "pointshape":       19,
 "pointsize":      1.5,
 "pointalpha":        1,
 "pointstroke":      0.5,
-"gTreecolour": "#C49A00",
-"gTreefill": "#FFFFFF",
-"gTreesize":       12,
-"gTreeangle":        0,
-"gTreehjust":      0.5,
-"gTreevjust":        1,
-"gTreealpha":        1,
-"gTreefamily": "",
-"gTreefontface":        1,
-"gTreelineheight":      1.2,
 "polygonfill": "#C49A00",
 "polygoncolour": "#000000",
 "polygonsize":      0.5,
@@ -639,23 +639,13 @@
  "pathcolour": "#53B400",
 "pathsize":        4,
 "pathlinetype":        1,
-"pathalpha":        1,
+"pathalpha":      0.6,
 "label": "Latin America & Caribbean",
 "pointcolour": "#53B400",
 "pointshape":       19,
 "pointsize":      1.5,
 "pointalpha":        1,
 "pointstroke":      0.5,
-"gTreecolour": "#53B400",
-"gTreefill": "#FFFFFF",
-"gTreesize":       12,
-"gTreeangle":        0,
-"gTreehjust":      0.5,
-"gTreevjust":        1,
-"gTreealpha":        1,
-"gTreefamily": "",
-"gTreefontface":        1,
-"gTreelineheight":      1.2,
 "polygonfill": "#53B400",
 "polygoncolour": "#000000",
 "polygonsize":      0.5,
@@ -666,23 +656,13 @@
  "pathcolour": "#00C094",
 "pathsize":        4,
 "pathlinetype":        1,
-"pathalpha":        1,
+"pathalpha":      0.6,
 "label": "Middle East & North Africa",
 "pointcolour": "#00C094",
 "pointshape":       19,
 "pointsize":      1.5,
 "pointalpha":        1,
 "pointstroke":      0.5,
-"gTreecolour": "#00C094",
-"gTreefill": "#FFFFFF",
-"gTreesize":       12,
-"gTreeangle":        0,
-"gTreehjust":      0.5,
-"gTreevjust":        1,
-"gTreealpha":        1,
-"gTreefamily": "",
-"gTreefontface":        1,
-"gTreelineheight":      1.2,
 "polygonfill": "#00C094",
 "polygoncolour": "#000000",
 "polygonsize":      0.5,
@@ -693,23 +673,13 @@
  "pathcolour": "#00B6EB",
 "pathsize":        4,
 "pathlinetype":        1,
-"pathalpha":        1,
+"pathalpha":      0.6,
 "label": "North America",
 "pointcolour": "#00B6EB",
 "pointshape":       19,
 "pointsize":      1.5,
 "pointalpha":        1,
 "pointstroke":      0.5,
-"gTreecolour": "#00B6EB",
-"gTreefill": "#FFFFFF",
-"gTreesize":       12,
-"gTreeangle":        0,
-"gTreehjust":      0.5,
-"gTreevjust":        1,
-"gTreealpha":        1,
-"gTreefamily": "",
-"gTreefontface":        1,
-"gTreelineheight":      1.2,
 "polygonfill": "#00B6EB",
 "polygoncolour": "#000000",
 "polygonsize":      0.5,
@@ -720,23 +690,13 @@
  "pathcolour": "#A58AFF",
 "pathsize":        4,
 "pathlinetype":        1,
-"pathalpha":        1,
+"pathalpha":      0.6,
 "label": "South Asia",
 "pointcolour": "#A58AFF",
 "pointshape":       19,
 "pointsize":      1.5,
 "pointalpha":        1,
 "pointstroke":      0.5,
-"gTreecolour": "#A58AFF",
-"gTreefill": "#FFFFFF",
-"gTreesize":       12,
-"gTreeangle":        0,
-"gTreehjust":      0.5,
-"gTreevjust":        1,
-"gTreealpha":        1,
-"gTreefamily": "",
-"gTreefontface":        1,
-"gTreelineheight":      1.2,
 "polygonfill": "#A58AFF",
 "polygoncolour": "#000000",
 "polygonsize":      0.5,
@@ -747,23 +707,13 @@
  "pathcolour": "#FB61D7",
 "pathsize":        4,
 "pathlinetype":        1,
-"pathalpha":        1,
+"pathalpha":      0.6,
 "label": "Sub-Saharan Africa",
 "pointcolour": "#FB61D7",
 "pointshape":       19,
 "pointsize":      1.5,
 "pointalpha":        1,
 "pointstroke":      0.5,
-"gTreecolour": "#FB61D7",
-"gTreefill": "#FFFFFF",
-"gTreesize":       12,
-"gTreeangle":        0,
-"gTreehjust":      0.5,
-"gTreevjust":        1,
-"gTreealpha":        1,
-"gTreefamily": "",
-"gTreefontface":        1,
-"gTreelineheight":      1.2,
 "polygonfill": "#FB61D7",
 "polygoncolour": "#000000",
 "polygonsize":      0.5,
@@ -825,9 +775,10 @@
 "loc": {
  "x": [
  [
-      2.5,
-       5,
-     7.5 
+        2,
+       4,
+       6,
+       8 
 ],
 [
      1960,
@@ -838,9 +789,10 @@
     2010 
 ],
 [
-      2.5,
-       5,
-     7.5 
+        2,
+       4,
+       6,
+       8 
 ],
 [
      1960,
@@ -889,13 +841,15 @@
 "loc": {
  "x": [
  [
-     1.25,
-     2.5,
-    3.75,
+        1,
+       2,
+       3,
+       4,
        5,
-    6.25,
-     7.5,
-    8.75 
+       6,
+       7,
+       8,
+       9 
 ],
 [
      1960,
@@ -911,13 +865,15 @@
     2010 
 ],
 [
-     1.25,
-     2.5,
-    3.75,
+        1,
+       2,
+       3,
+       4,
        5,
-    6.25,
-     7.5,
-    8.75 
+       6,
+       7,
+       8,
+       9 
 ],
 [
      1960,
@@ -981,14 +937,16 @@
 },
 "axis1": {
  "x": [
-      2.5,
-       5,
-     7.5 
+        2,
+       4,
+       6,
+       8 
 ],
 "xlab": [
- "2.5",
-"5.0",
-"7.5" 
+ "2",
+"4",
+"6",
+"8" 
 ],
 "xrange": [   0.4303,   9.6417 ],
 "xline": false,
@@ -1055,14 +1013,16 @@
 },
 "axis3": {
  "x": [
-      2.5,
-       5,
-     7.5 
+        2,
+       4,
+       6,
+       8 
 ],
 "xlab": [
- "2.5",
-"5.0",
-"7.5" 
+ "2",
+"4",
+"6",
+"8" 
 ],
 "xrange": [   0.4303,   9.6417 ],
 "xline": false,
@@ -1126,9 +1086,10 @@
 "yangle":        0,
 "yanchor": "end",
 "xlabs": [
- "2.5",
-"5.0",
-"7.5",
+ "2",
+"4",
+"6",
+"8",
 "1960",
 "1970",
 "1980",
@@ -1162,12 +1123,13 @@
 "geom2_line_scatter",
 "geom3_point_scatter",
 "geom4_text_scatter",
-"geom5_widerect_scatter",
-"geom6_path_scatter",
-"geom7_labelaligned_scatter",
+"geom5_text_scatter",
+"geom6_widerect_scatter",
+"geom7_path_scatter",
 "geom8_polygon_scatter" 
 ] 
 } 
 },
+"source": "https://github.com/prateek-kalwar-95/r/blob/main/animint2-worldbank.R",
 "title": "World Bank data (multiple selection, facets, map)" 
 }
